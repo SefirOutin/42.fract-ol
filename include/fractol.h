@@ -6,29 +6,22 @@
 /*   By: soutin <soutin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 22:44:43 by soutin            #+#    #+#             */
-/*   Updated: 2023/07/16 20:57:05 by soutin           ###   ########.fr       */
+/*   Updated: 2023/07/17 20:57:38 by soutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-typedef struct	s_dimg {
-	void	*img;
-	int		*addr;
-	int		bpp;
-	int		line_l;
-	int		endian;
-}				t_dimg;
+# include "../minilibx-linux/mlx.h"
+# include <X11/X.h>
+# include <X11/keysym.h>
+# include <math.h>
+# include <stdlib.h>
+//#include "../minilibx-linux/mlx_int.h"
+# include "../libft/include/libft.h"
 
-typedef struct	s_vars
-{
-	void	*mlx;
-	void	*win;
-	t_dimg	image;
-}				t_vars;
-
-typedef struct	s_plan
+typedef struct s_plane
 {
 	double	Xmin;
 	double	Xmax;
@@ -36,39 +29,42 @@ typedef struct	s_plan
 	double	Ymax;
 	int		x;
 	int		y;
-	double		dx;
-	double		dy;
-}				t_plan;
+	double	dx;
+	double	dy;
+}			t_plane;
 
-enum {
-	ON_KEYDOWN = 2,
-	ON_KEYUP = 3,
-	ON_MOUSEDOWN = 4,
-	ON_MOUSEUP = 5,
-	ON_MOUSEMOVE = 6,
-	ON_EXPOSE = 12,
-	ON_DESTROY = 17
-};
+typedef struct s_img
+{
+	void	*img;
+	int		*addr;
+	int		bpp;
+	int		line_l;
+	int		endian;
+	t_plane	plane;
+}			t_img;
 
-#define GREEN 0x00FF00
-#define YELLOW 0xF6FA15
-#define CYAN 0x15EFE5
-#define MAGENTA 0xD03EC6
-#define ORANGE 0xD35400
-#define BLACK 0x000000
+typedef struct s_vars
+{
+	void	*mlx;
+	void	*win;
+	t_img	image;
+}			t_vars;
 
-#define W_width 1280
-#define W_heigh 720
 
-#include <stdlib.h>
-#include <X11/X.h>
-#include <X11/keysym.h>
-#include <math.h>
-#include "../minilibx-linux/mlx.h"
-#include "../minilibx-linux/mlx_int.h"
-#include "../libft/include/libft.h"
+# define GREEN 0x00FF00
+# define YELLOW 0xF6FA15
+# define CYAN 0x15EFE5
+# define MAGENTA 0xD03EC6
+# define ORANGE 0xD35400
+# define BLACK 0x000000
 
-void	mandelbrot_launch(t_dimg *img, double zoom);
+# define WIN_W 1000
+# define WIN_H 900
 
+void		mandelbrot_launch(t_img *img, double zoom);
+void		zoom_M(t_vars *vars, double zoom);
+int			mouse_event(int button, int x, int y, void *param);
+int			inputs(int keysym, t_vars *vars);
+int			close_window(t_vars *vars);
 
 #endif
