@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: soutin <soutin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   c_reated: 2023/07/04 22:44:43 by soutin            #+#    #+#             */
-/*   Updated: 2023/08/09 18:14:53 by soutin           ###   ########.fr       */
+/*   Created: 2023/07/04 22:44:43 by soutin            #+#    #+#             */
+/*   Updated: 2023/08/09 21:05:25 by soutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <X11/keysym.h>
 # include <math.h>
 # include <stdlib.h>
-//#include "../minilibx-linux/mlx_int.h"
 # include "../libft/include/libft.h"
 
 typedef struct s_complex
@@ -30,8 +29,8 @@ typedef struct s_complex
 typedef struct s_pos
 {
 	double		zoom;
-	double		moveX;
-	double		moveY;
+	double		xmove;
+	double		ymove;
 }				t_pos;
 
 typedef struct s_img
@@ -64,7 +63,6 @@ typedef struct s_vars
 
 # define WIN_W 800
 # define WIN_H 600
-
 
 /*initialisations*/
 int				init_vars(t_vars *vars, char fractal);

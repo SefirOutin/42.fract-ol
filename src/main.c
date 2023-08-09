@@ -6,7 +6,7 @@
 /*   By: soutin <soutin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 22:43:05 by soutin            #+#    #+#             */
-/*   Updated: 2023/08/09 20:57:21 by soutin           ###   ########.fr       */
+/*   Updated: 2023/08/09 21:04:07 by soutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	check_params(int c, char **v)
 int	main(int c, char **v)
 {
 	t_vars	vars;
-	
+
 	if (!check_params(c, v))
 	{
 		if (c == 3)
