@@ -6,7 +6,7 @@
 /*   By: soutin <soutin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:19:40 by soutin            #+#    #+#             */
-/*   Updated: 2023/08/09 20:42:21 by soutin           ###   ########.fr       */
+/*   Updated: 2023/08/09 21:08:43 by soutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ int	init_mlx_features(t_vars *vars)
 void	init_pos(t_pos *pos, char fractal)
 {
 	pos->zoom = 1;
-	pos->moveY = 0;
+	pos->ymove = 0;
 	if (fractal == 'M' || fractal == 'm')
-		pos->moveX = -0.5;
+		pos->xmove = -0.5;
 	else
-		pos->moveX = 0;
+		pos->xmove = 0;
 }
 
 t_img	init_img(t_vars *vars)

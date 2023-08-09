@@ -6,7 +6,7 @@
 /*   By: soutin <soutin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:42:30 by soutin            #+#    #+#             */
-/*   Updated: 2023/08/09 20:44:10 by soutin           ###   ########.fr       */
+/*   Updated: 2023/08/09 21:09:05 by soutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ void	julia_launch(t_img *img, t_pos pos, t_complex c)
 		while (img->x < WIN_W)
 		{
 			new_re = 1.5 * (img->x - WIN_W / 2) / (0.5 * pos.zoom * WIN_W)
-				+ pos.moveX;
+				+ pos.xmove;
 			new_im = (img->y - WIN_H / 2) / (0.5 * pos.zoom * WIN_H)
-				+ pos.moveY;
+				+ pos.ymove;
 			color = calculate_julia(pos, c, new_re, new_im);
 			put_pixel_to_image(img, img->x, img->y, color);
 			img->x++;

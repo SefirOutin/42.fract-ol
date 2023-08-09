@@ -6,7 +6,7 @@
 /*   By: soutin <soutin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 18:08:55 by soutin            #+#    #+#             */
-/*   Updated: 2023/08/09 19:46:44 by soutin           ###   ########.fr       */
+/*   Updated: 2023/08/09 21:08:11 by soutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,25 +43,25 @@ void	zoom(t_vars *vars)
 void	change_mandelbrot_position(t_vars *vars, int direction)
 {
 	if (direction == 1)
-		vars->pos.moveX -= 0.1;
+		vars->pos.xmove -= 0.1;
 	else if (direction == 2)
-		vars->pos.moveY -= 0.1;
+		vars->pos.ymove -= 0.1;
 	else if (direction == 3)
-		vars->pos.moveX += 0.1;
+		vars->pos.xmove += 0.1;
 	else if (direction == 4)
-		vars->pos.moveY += 0.1;
+		vars->pos.ymove += 0.1;
 }
 
 void	change_julia_position(t_vars *vars, int direction)
 {
 	if (direction == 1)
-		vars->pos.moveX -= 0.01;
+		vars->pos.xmove -= 0.01;
 	else if (direction == 2)
-		vars->pos.moveY -= 0.01;
+		vars->pos.ymove -= 0.01;
 	else if (direction == 3)
-		vars->pos.moveX += 0.01;
+		vars->pos.xmove += 0.01;
 	else if (direction == 4)
-		vars->pos.moveY += 0.01;
+		vars->pos.ymove += 0.01;
 }
 
 void	change_position(t_vars *vars, int direction)

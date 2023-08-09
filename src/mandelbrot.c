@@ -6,7 +6,7 @@
 /*   By: soutin <soutin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 20:32:06 by soutin            #+#    #+#             */
-/*   Updated: 2023/08/09 20:43:06 by soutin           ###   ########.fr       */
+/*   Updated: 2023/08/09 21:09:16 by soutin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void	mandelbrot_launch(t_img *img, t_pos pos)
 		while (img->x < WIN_W)
 		{
 			c_r = 1.5 * (img->x - WIN_W / 2) / (0.5 * pos.zoom * WIN_W)
-				+ pos.moveX;
-			c_i = (img->y - WIN_H / 2) / (0.5 * pos.zoom * WIN_H) + pos.moveY;
+				+ pos.xmove;
+			c_i = (img->y - WIN_H / 2) / (0.5 * pos.zoom * WIN_H) + pos.ymove;
 			color = calculate_mandelbrot(pos, c_r, c_i);
 			put_pixel_to_image(img, img->x, img->y, color);
 			img->x++;
